@@ -22,11 +22,12 @@ class Logger:
 
         with open(self.filename, 'a') as file:
             vals_str=""
-
+          
             # TODO Part 5: Write the values from the list to the file
-            ...
-            
-            vals_str+="\n"
+            for v in values_list:
+                vals_str += str(v)
+                vals_str += ","
+            vals_str += "\n"
             
             file.write(vals_str)
             
@@ -65,6 +66,11 @@ class FileReader:
             
             # Read each line and extract values
             for line in file:
+                if line.startswith("array('f', "):
+                    line = line.lstrip("array('f', ")
+                line = line.replace("[", "").replace("]", "")
+                line = line.replace("(", "").replace(")", "")
+
                 values = line.strip().split(',')
                 
                 row=[]                
@@ -85,7 +91,7 @@ def euler_from_quaternion(quat):
     Convert quaternion (w in last place) to euler roll, pitch, yaw.
     quat = [x, y, z, w]
     """
-    ... # just unpack yaw
+    t0 = 2 * (quat.x + quat.y + quat.z + quat.w)
+    t1 = 1 - 2*(quat.y**2 + quat.z**2)
+    yaw = atan2(t0, t1)
     return yaw
-
-
