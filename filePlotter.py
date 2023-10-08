@@ -14,15 +14,9 @@ def plot_errors(filename):
     first_stamp=values[0][-1]
 
     if "laser" in filename:
-        # # Choose which laser scan to plot
+        # Choose which laser scan to plot
         scan_index = 10
         
-        # Method 1: Headers "x" and "y" (to be removed after Lab1)
-        # assumption: each scan contains 720 entries
-        # x_list = [values[i][0] for i in range(720*scan_index, 720*(scan_index+1), 1) if values[i][0] != np.inf]
-        # y_list = [values[i][1] for i in range(720*scan_index, 720*(scan_index+1), 1) if values[i][1] != np.inf]
-
-        # Method 2: Headers "ranges" (to be removed after Lab1)
         x_list = []
         y_list = []
         theta = 0
@@ -34,11 +28,6 @@ def plot_errors(filename):
             theta += theta_increment
     
         plt.scatter(x_list, y_list)
-
-        # Method 3: Headers "x_list" and "y_list" (to be kept after Lab1)
-        # x_list = values[scan_index][0]
-        # y_list = values[scan_index][1]
-        # plt.scatter(x_list, y_list)
     else:
         for val in values:
             time_list.append(val[-1] - first_stamp)
@@ -50,8 +39,7 @@ def plot_errors(filename):
     plt.title("Line IMU Readings")
     plt.ylabel("IMU Readings")
     plt.xlabel("Time")
-        
-    #plt.plot([lin[0] for lin in values], [lin[1] for lin in values])
+
     plt.legend()
     plt.grid()
     plt.show()

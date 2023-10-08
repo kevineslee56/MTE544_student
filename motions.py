@@ -49,7 +49,7 @@ class motion_executioner(Node):
         # loggers
         self.imu_logger=Logger('imu_content_'+str(motion_types[motion_type])+'.csv', headers=["acc_x", "acc_y", "angular_z", "stamp"])
         self.odom_logger=Logger('odom_content_'+str(motion_types[motion_type])+'.csv', headers=["x","y","th", "stamp"])
-        self.laser_logger=Logger('laser_content_'+str(motion_types[motion_type])+'.csv', headers=["x", "y", "stamp"])
+        self.laser_logger=Logger('laser_content_'+str(motion_types[motion_type])+'.csv', headers=["ranges", "stamp"])
         
         # TODO Part 3: Create the QoS profile by setting the proper parameters in (...)
         qos=QoSProfile(
@@ -91,20 +91,7 @@ class motion_executioner(Node):
                                      Time.from_msg(odom_msg.header.stamp).nanoseconds])
                 
     def laser_callback(self, laser_msg: LaserScan):
-        # This works for Method 3 of filePlotter
-        theta = 0
-        theta_increment = 0.5*math.pi/180
-        x_list = []
-        y_list = []
-        for r in laser_msg.ranges:
-            if laser_msg.range_min <= r <= laser_msg.range_max:
-                x_list.append(r*math.cos(theta))
-                y_list.append(r*math.sin(theta))
-            else :
-                x_list.append(np.NaN)
-                y_list.append(np.NaN)
-            theta += theta_increment
-        self.laser_logger.log_values([x_list ,y_list,
+        self.laser_logger.log_values([laser_msg.ranges,
                                 Time.from_msg(laser_msg.header.stamp).nanoseconds])
     
     def timer_callback(self):
