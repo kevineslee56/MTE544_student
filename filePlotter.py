@@ -5,7 +5,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from utilities import FileReader
-import re
 import math
 
 def plot_errors(filename):
@@ -28,11 +27,10 @@ def plot_errors(filename):
         y_list = []
         theta = 0
         theta_increment = 0.5*math.pi/180
-        for range in values[scan_index][:-1]:
-            if range != np.inf:
-                x_list.append(range*math.cos(theta))
-                y_list.append(range*math.sin(theta))
-                print(range*math.cos(theta))
+        for scan_range in values[scan_index][:-1]:
+            if scan_range != np.inf:
+                x_list.append(scan_range*math.cos(theta))
+                y_list.append(scan_range*math.sin(theta))
             theta += theta_increment
     
         plt.scatter(x_list, y_list)
@@ -47,6 +45,11 @@ def plot_errors(filename):
 
         for i in range(0, len(headers) - 1):
             plt.plot(time_list, [lin[i] for lin in values], label= headers[i]+ " linear")
+
+    # change as necessary to match data
+    plt.title("Line IMU Readings")
+    plt.ylabel("IMU Readings")
+    plt.xlabel("Time")
         
     #plt.plot([lin[0] for lin in values], [lin[1] for lin in values])
     plt.legend()
