@@ -47,8 +47,8 @@ class motion_executioner(Node):
         self.vel_publisher=self.create_publisher(Twist, '/cmd_vel', 10)
                 
         # loggers
-        self.imu_logger=Logger('imu_content_'+str(motion_types[motion_type])+'.csv', headers=["acc_x", "acc_y", "angular_z", "stamp"])
-        self.odom_logger=Logger('odom_content_'+str(motion_types[motion_type])+'.csv', headers=["x","y","th", "stamp"])
+        self.imu_logger=Logger('imu_content_'+str(motion_types[motion_type])+'.csv', headers=["acc_x (m/s^2)", "acc_y (m/s^2)", "angular_z (rad/s)", "stamp"])
+        self.odom_logger=Logger('odom_content_'+str(motion_types[motion_type])+'.csv', headers=["x (m)","y (m)","th (rad)", "stamp"])
         self.laser_logger=Logger('laser_content_'+str(motion_types[motion_type])+'.csv', headers=["ranges", "stamp"])
         
         # TODO Part 3: Create the QoS profile by setting the proper parameters in (...)

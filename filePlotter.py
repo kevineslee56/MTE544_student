@@ -36,9 +36,9 @@ def plot_errors(filename):
             plt.plot(time_list, [lin[i] for lin in values], label= headers[i]+ " linear")
 
     # change as necessary to match data
-    plt.title("Line IMU Readings")
-    plt.ylabel("IMU Readings")
-    plt.xlabel("Time")
+    plt.title("Line Laser Scan Readings")
+    plt.ylabel("Y (m)")
+    plt.xlabel("X (m)")
 
     plt.legend()
     plt.grid()
