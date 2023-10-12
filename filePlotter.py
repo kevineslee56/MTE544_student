@@ -43,7 +43,7 @@ def plot_errors(filename):
             plt.title("Circle Imu Readings")
         if "spiral" in filename:
             plt.title("Spiral Imu Readings")
-        plt.ylabel("Acceleration (m^2)")
+        plt.ylabel("Acceleration (m/s^2)")
     if "laser" in filename:
         if "line" in filename:
             plt.title("Line Laser Scan Readings")
