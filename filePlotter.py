@@ -36,9 +36,32 @@ def plot_errors(filename):
             plt.plot(time_list, [lin[i] for lin in values], label= headers[i]+ " linear")
 
     # change as necessary to match data
-    plt.title("Line Laser Scan Readings")
-    plt.ylabel("Y (m)")
-    plt.xlabel("X (m)")
+    if "imu" in filename:
+        if "line" in filename:
+            plt.title("Line Imu Readings")
+        if "circle" in filename:
+            plt.title("Circle Imu Readings")
+        if "spiral" in filename:
+            plt.title("Spiral Imu Readings")
+        plt.ylabel("Acceleration (m^2)")
+    if "laser" in filename:
+        if "line" in filename:
+            plt.title("Line Laser Scan Readings")
+        if "circle" in filename:
+            plt.title("Circle Laser Scan Readings")
+        if "spiral" in filename:
+            plt.title("Spiral Laser Scan Readings")
+        plt.ylabel("Distance (m)")
+    if "odom" in filename:
+        if "line" in filename:
+            plt.title("Line Odometer Readings")
+        if "circle" in filename:
+            plt.title("Circle Odometer Readings")
+        if "spiral" in filename:
+            plt.title("Spiral Odometer Readings")
+        plt.ylabel("Distance (m)")
+
+    plt.xlabel("Time (s)")
 
     plt.legend()
     plt.grid()
