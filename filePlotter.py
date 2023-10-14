@@ -33,7 +33,7 @@ def plot_errors(filename):
             time_list.append(val[-1] - first_stamp)
 
         for i in range(0, len(headers) - 1):
-            plt.plot(time_list, [lin[i] for lin in values], label= headers[i]+ " linear")
+            plt.plot(time_list, [lin[i] for lin in values], label= headers[i])
 
     # change as necessary to match data
     if "imu" in filename:
@@ -43,7 +43,7 @@ def plot_errors(filename):
             plt.title("Circle Imu Readings")
         if "spiral" in filename:
             plt.title("Spiral Imu Readings")
-        plt.ylabel("Acceleration (m/s^2)")
+        plt.ylabel("IMU Measurements")
     if "laser" in filename:
         if "line" in filename:
             plt.title("Line Laser Scan Readings")
@@ -51,7 +51,7 @@ def plot_errors(filename):
             plt.title("Circle Laser Scan Readings")
         if "spiral" in filename:
             plt.title("Spiral Laser Scan Readings")
-        plt.ylabel("Distance (m)")
+        plt.ylabel("Laser Measurements")
     if "odom" in filename:
         if "line" in filename:
             plt.title("Line Odometer Readings")
@@ -59,9 +59,9 @@ def plot_errors(filename):
             plt.title("Circle Odometer Readings")
         if "spiral" in filename:
             plt.title("Spiral Odometer Readings")
-        plt.ylabel("Distance (m)")
+        plt.ylabel("Odom Measurements")
 
-    plt.xlabel("Time (s)")
+    plt.xlabel("Time (ns)")
 
     plt.legend()
     plt.grid()
