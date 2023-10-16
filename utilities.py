@@ -66,6 +66,7 @@ class FileReader:
             
             # Read each line and extract values
             for line in file:
+                # Remove unnecessary characters to facilitate parsing
                 if line.startswith("array('f', "):
                     line = line.lstrip("array('f', ")
                 line = line.replace("[", "").replace("]", "")

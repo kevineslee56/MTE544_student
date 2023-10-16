@@ -19,8 +19,6 @@ from rclpy.time import Time
 
 # You may add any other imports you may need/want to use below
 # import ...
-import math
-import numpy as np
 
 CIRCLE=0; SPIRAL=1; ACC_LINE=2
 motion_types=['circle', 'spiral', 'line']
@@ -35,7 +33,10 @@ class motion_executioner(Node):
         
         self.radius_=0.0
         
+        # Initial angular z velocity for spiral callback
         self.spiral_z = 10.0
+
+        # Initial linear x acceleration for accelerated line callback
         self.acc_line_x = 0.0
         
         self.successful_init=False
@@ -125,6 +126,7 @@ class motion_executioner(Node):
     def make_circular_twist(self):
         msg=Twist()
         # fill up the twist msg for circular motion
+        # Constant linear x velocity and angular z velocity
         msg.linear.x = 0.5
         msg.angular.z = 2.0
         return msg
@@ -132,6 +134,7 @@ class motion_executioner(Node):
     def make_spiral_twist(self):
         msg=Twist()
         # fill up the twist msg for spiral motion
+        # Decrement angular z velocity and keep linear x velocity constant
         if self.spiral_z >= 1:
             msg.linear.x = 0.5
             msg.angular.z = self.spiral_z
@@ -140,6 +143,8 @@ class motion_executioner(Node):
     
     def make_acc_line_twist(self):
         msg=Twist()
+        # fill up the twist msg for line motion
+        # Increment linear x acceleration
         if self.acc_line_x < 10:
             msg.linear.x = self.acc_line_x
             self.acc_line_x += 0.01
