@@ -44,5 +44,5 @@ class localization(Node):
 
 # TODO Part 3
 # Here put a guard that makes the node run, ONLY when run as a main thread!
-
+# This is to make sure this node functions right before using it in decision.py
     
