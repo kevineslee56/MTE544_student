@@ -96,8 +96,8 @@ Now, you can test your P-controller with the point planner before proceeding:
 Now that you have implemented a P-controller, proceed with the extension to include the derivative and integral components. You will need to:
 - Implement the error derivative and integral; follow the comments in ```pid.py```;
 - Implement the control laws for PD, PI, PID; follow the comments in ```pid.py```;
-- Test your PD, PI, and PID controller using the point planner; follow the comments in ```controller.py```;
-- Plot robot pose and errors using the ```plot_errors.py```.
+- Test each controller, i.e., P, PD, PI, and PID, using the point planner; follow the comments in ```controller.py```;
+- Plot robot pose and errors using the ```plot_errors.py``` for each controller.
 - Tune your code based on the plots; follow the comments in ```decisions.py```.
 
 ## Part 6 - Perform trajectories and log your error (20 marks)
