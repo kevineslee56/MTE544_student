@@ -132,7 +132,7 @@ Please prepare a written report containing in the front page:
 - Student ID of all group members;
 - Station number and robot number.
 
-In a maximum of 2 pages (excluding the front page), report a comparison between the P-controller and the PID one. This report should only have two sections:
+In a maximum of 3 pages (excluding the front page), report a comparison between the P-controller and the PID one. This report should only have two sections:
 
 * Section 1 - the plot of the logged error for the trajectories. The plot should have, title, label name for axis, legends, different shapes/colors for each error, and grids. 
 * Section 2 - comparing the controllers in agility, accuracy, and overshoot numerically. You should find the metrics for these three quantities from automatic control concepts/previous control courses. 
