@@ -9,8 +9,9 @@
 **From Code Submission on LEARN:** 
 - ```3``` marks for correct completion of ```pid.py```, ```utilities.py```, ```controller.py```, and, ```decision.py```.
 > 3 x 4 = 12 marks
-> 
 **In-Lab:** ```8``` marks for testing Point Controller
+
+- If you did not show the motions in the lab to a TA, then you get ```4``` marks (50% off) if you have the plots in the report.
 
 ## Part 5: 20 marks
 **From Report on LEARN:**
@@ -20,6 +21,7 @@
 ## Part 6: 20 marks
 **In-Lab: 20 marks**
 - ```10``` marks for each trajectory: ```0``` for inexecutable code, ```5``` for incorrect motion, and ```8``` for jerky trajectories.
+- If you did not show the motions in the lab to a TA, then you get ```5``` marks (50% off) for each trajectory shown in the plots in the report.
 
 > 10 x 2 = 20
   
