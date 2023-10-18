@@ -97,6 +97,7 @@ Now that you have implemented a P-controller, proceed with the extension to incl
 - Implement the error derivative and integral; follow the comments in ```pid.py```;
 - Implement the control laws for PD, PI, PID; follow the comments in ```pid.py```;
 - Test each controller, i.e., P, PD, PI, and PID, using the point planner; follow the comments in ```controller.py```;
+- Log your errors to evaluate the performance of your controllers and to plot them in your report;
 - Plot robot pose and errors using the ```plot_errors.py``` for each controller.
 - Tune your code based on the plots; follow the comments in ```decisions.py```.
 
