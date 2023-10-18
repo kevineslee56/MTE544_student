@@ -28,6 +28,9 @@ def plot_errors(filename):
             theta += theta_increment
     
         plt.scatter(x_list, y_list)
+    # comment out elif for odom plots against time
+    elif "odom" in filename:
+        plt.plot([lin[0] for lin in values], [lin[1] for lin in values])
     else:
         for val in values:
             time_list.append(val[-1] - first_stamp)
@@ -59,9 +62,9 @@ def plot_errors(filename):
             plt.title("Circle Odometer Readings")
         if "spiral" in filename:
             plt.title("Spiral Odometer Readings")
-        plt.ylabel("Odom Measurements")
+        plt.ylabel("Y (m)")
 
-    plt.xlabel("Time (ns)")
+    plt.xlabel("X (m)")
 
     plt.legend()
     plt.grid()
