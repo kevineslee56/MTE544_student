@@ -12,6 +12,10 @@ P=0; PD=1; PI=2; PID=3
 LINEAR_VEL_LIMIT = 0.31 # [m/s]
 ANGULAR_VEL_LIMIT = 1.9 # [rad/s]
 
+# TurtleBot 3 Simulation Specifications
+# LINEAR_VEL_LIMIT = 0.22 # [m/s]
+# ANGULAR_VEL_LIMIT = 2.84 # [rad/s]
+
 class controller:
     
     
