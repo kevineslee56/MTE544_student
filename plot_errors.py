@@ -16,17 +16,17 @@ def plot_errors(filename):
     y_labels = []
     label_units = []
     title_prefix = ""
-    if filename == "linear.csv":
+    if "linear.csv" in filename: 
         title_prefix = "Linear Error: "
-        label_units = ["[m]", "[m/s]", ""]
+        label_units = ["[m]", "[m/s]", "[m*s]"]
         x_labels = ["e [m]", "Time [ns]"]
         y_labels = ["e_dot [m/s]", "Errors"]
-    elif filename == "angular.csv":
+    elif "angular.csv" in filename:
         title_prefix = "Angular Error: "
-        label_units = ["[m]", "[m/s]", ""]
+        label_units = ["[m]", "[m/s]", "[m*s]"]
         x_labels = ["e [m]", "Time [ns]"]
         y_labels = ["e_dot [m/s]", "Errors"]
-    elif filename == "robot_pose.csv":
+    elif "robot_pose.csv" in filename:
         title_prefix = "Robot Pose: "
         label_units = ["[m]", "[m]", "[rad]"]
         x_labels = ["x [m]", "Time [ns]"]

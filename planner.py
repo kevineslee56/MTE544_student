@@ -24,7 +24,7 @@ class planner:
 
     # TODO Part 6: Implement the trajectories here
     def trajectory_planner(self):
-        function = "t"
+        function = "quadratic"
         
         trajectoryQuadratic = []    # [[x,y]]
         trajectorySigma = []        # [[x,y]]
