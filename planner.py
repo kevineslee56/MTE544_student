@@ -8,7 +8,7 @@ class planner:
 
         self.type=type_
 
-    def plan(self, goalPoint=[-1.0, -1.0, 0.0]):
+    def plan(self, goalPoint=[0.0, 0.0, 0.0]):
         
         if self.type==POINT_PLANNER:
             return self.point_planner(goalPoint)
@@ -24,13 +24,13 @@ class planner:
 
     # TODO Part 6: Implement the trajectories here
     def trajectory_planner(self):
-        function = "quadratic"
+        function = "t"
         
         trajectoryQuadratic = []    # [[x,y]]
         trajectorySigma = []        # [[x,y]]
-        for i in range(100):
+        for i in range(-10,11):
             x = i / 10
             trajectoryQuadratic.append([x, x**2])
-            trajectorySigma.append([x, 1/(1+math.exp(-x))])
+            trajectorySigma.append([x, 1/(1+math.exp(-x*3))])
 
-        return trajectoryQuadratic if function == "quadratic" else trajectorySigma
+        return trajectorySigma if function == "quadratic" else trajectorySigma

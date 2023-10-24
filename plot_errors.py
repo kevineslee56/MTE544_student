@@ -30,7 +30,7 @@ def plot_errors(filename):
         title_prefix = "Robot Pose: "
         label_units = ["[m]", "[m]", "[rad]"]
         x_labels = ["x [m]", "Time [ns]"]
-        y_labels = ["y [m/s]", "Pose Measurements"]
+        y_labels = ["y [m]", "Pose Measurements"]
 
     axes[0].plot([lin[0] for lin in values], [lin[1] for lin in values])
     axes[0].set_title(title_prefix + "State Space")
