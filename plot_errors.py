@@ -16,18 +16,22 @@ def plot_errors(filename):
     y_labels = []
     label_units = []
     title_prefix = ""
+    plot_filename = ""
     if "linear.csv" in filename: 
         title_prefix = "Linear Error: "
-        label_units = ["[m]", "[m/s]", "[m*s]"]
+        plot_filename = "Linear_Plot"
+        label_units = ["[m]", "[m/s]", "[m]"]
         x_labels = ["e [m]", "Time [ns]"]
         y_labels = ["e_dot [m/s]", "Errors"]
     elif "angular.csv" in filename:
         title_prefix = "Angular Error: "
-        label_units = ["[m]", "[m/s]", "[m*s]"]
+        plot_filename = "Angular_Plot"
+        label_units = ["[m]", "[m/s]", "[m]"]
         x_labels = ["e [m]", "Time [ns]"]
         y_labels = ["e_dot [m/s]", "Errors"]
     elif "robot_pose.csv" in filename:
         title_prefix = "Robot Pose: "
+        plot_filename = "Robot-Pose_Plot"
         label_units = ["[m]", "[m]", "[rad]"]
         x_labels = ["x [m]", "Time [ns]"]
         y_labels = ["y [m]", "Pose Measurements"]
@@ -47,8 +51,23 @@ def plot_errors(filename):
     axes[1].legend()
     axes[1].grid()
 
-    plt.show()
+    parts = filename.split("/")
+    num_folders = 0
+    if "Point" in filename:
+        num_folders = 2
+    else:
+        num_folders = 3
     
+    dir_path = "/".join(parts[:num_folders])
+    plot_file_prefix = ""
+    for i in range(num_folders):
+        plot_file_prefix += parts[i] + "_"
+
+    plot_filename = plot_file_prefix + plot_filename
+    plt.savefig(dir_path + "/" + plot_filename)
+
+    # plt.show()
+
 import argparse
 
 if __name__=="__main__":
