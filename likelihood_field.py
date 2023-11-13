@@ -265,8 +265,6 @@ class map_utilities(Node):
         plt.title('PGM Image')
         plt.show()
 
-
-# TODO Part 6: Complete laserscan to Cartesian coordinates
 def laserscan_to_cartesian(laserscan):
     
     angle_min = laserscan.angle_min
