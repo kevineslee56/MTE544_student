@@ -49,9 +49,9 @@ class localization(Node):
         
         x = np.zeros(6)
         
-        Q = 0.5*np.identity(6)
+        Q = 0.9*np.identity(6)
 
-        R = 0.5*np.identity(4)
+        R = 0.1*np.identity(4)
         
         P = np.zeros((6,6)) # initial covariance
         
