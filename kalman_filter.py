@@ -5,10 +5,10 @@ class kalman_filter:
     
     # TODO Part 3: Initialize the covariances and the states    
     def __init__(self, P,Q,R, x, dt):
-        self.P = P      # prediction covariance matrix
-        self.Q = Q      # state covariance matrix
-        self.R = R      # measurement covariance matrix
-        self.x = x      # state variable matrix
+        self.P = P      # state covariance matrix
+        self.Q = Q      # state noise covariance matrix
+        self.R = R      # measurement noise covariance matrix
+        self.x = x      # state matrix
         self.dt = dt    # time step
         
     # TODO Part 3: Replace the matrices with Jacobians where needed        
