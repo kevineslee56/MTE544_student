@@ -22,16 +22,20 @@ def plot_errors(filename):
 
     axes[0].plot([lin[len(headers) - 3] for lin in values], [lin[len(headers) - 2] for lin in values])
     axes[0].set_title("state space")
+    axes[0].set_ylabel("y position (m)")
+    axes[0].set_xlabel("x position (m)")
     axes[0].grid()
 
     
     axes[1].set_title("each individual state")
+    axes[1].set_xlabel("time (ns)")
     for i in range(0, len(headers) - 1):
         axes[1].plot(time_list, [lin[i] for lin in values], label= headers[i])
 
     axes[1].legend()
     axes[1].grid()
 
+    fig.tight_layout()
     plt.show()
     
     
