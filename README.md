@@ -71,9 +71,14 @@ Check the [List of groups](https://uofwaterloo-my.sharepoint.com/:x:/g/personal/
 
 **NOTE: do not move the dock, do not change the positioning of the robots, this is important to be able to use your map later on.**
 
-Undock the robot, reset the odometry, and then acquire the map as you did in LAB-1 and save it as room for use in the planning.
+Undock the robot, put the robot in the entrance marked for you, and reset the odometry, and then acquire the map as you did in LAB-1 and save it as room for use in the planning.
 
 ```
+# terminal 1
+ros2 service call /reset_pose irobot_create_msgs/srv/ResetPose {}
+# terminal 2
+ros2 launch turtlebot4_navigation slam.launch.py
+# terminal 3
 ros2 run nav2_map_server map_saver_cli -f room
 ``` 
 When the map is acquired, make sure you **don't pick up the robot** so you wouldn't alter the odometry. If by any change you did, put the robot back on the dock, then undock and reset the odometry. This is to avoid for you to map the enviornment again.
