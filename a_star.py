@@ -188,7 +188,7 @@ def search(maze, start, end, heuristics_mode):
                 continue
 
             # TODO PART 4 Create the f, g, and h values (?)
-            child.g = child.parent.g + heuristics(child.parent.position, child.position, "euclidean")
+            child.g = child.parent.g + sqrt((child.parent.position[0]-child.position[0])**2 + (child.parent.position[1]-child.position[1])**2)
             ## Heuristic costs calculated here, this is using eucledian distance
             child.h = heuristics(child.position, end_node.position, heuristics_mode)
 
