@@ -1,13 +1,10 @@
 import matplotlib.pyplot as plt
 from utilities import FileReader
 
-def plot_errors():
+def plot_errors(filename):
     
-    headers, values=FileReader("robot_pose.csv").read_file()
-
-    
+    headers, values=FileReader(filename).read_file()
     time_list=[]
-    
     first_stamp=values[0][-1]
     
     for val in values:
@@ -23,7 +20,17 @@ def plot_errors():
 
     plt.show()
     
-    
+import argparse
 
 if __name__=="__main__":
-    plot_errors()
+
+    parser = argparse.ArgumentParser(description='Process some files.')
+    parser.add_argument('--files', nargs='+', required=True, help='List of files to process')
+    
+    args = parser.parse_args()
+    
+    print("plotting the files", args.files)
+
+    filenames=args.files
+    for filename in filenames:
+        plot_errors(filename)
